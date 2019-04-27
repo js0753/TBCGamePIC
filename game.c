@@ -12,12 +12,6 @@ struct Pokemon{
 
 };
 
-struct attack{
-    char aname[100];
-    int dmg;
-    int pp1;
-};
-
 void atk(int x,struct Pokemon *y){
   y->hp=y->hp-x;
 }
@@ -161,10 +155,11 @@ printf("\n\n\n");
     scanf("%d",&pa);
     t=chooseatk(player,pa,player.a1,player.a2,player.a3,player.a4);
     atk(t,&enemy);
+    if(enemy.hp>0){
     ea=((pa*99)%4 +1);
     u=chooseatk(enemy,ea,enemy.a1,enemy.a2,enemy.a3,enemy.a4);
     atk(u,&player);
-
+    }
     getch();
     system("cls");
 
