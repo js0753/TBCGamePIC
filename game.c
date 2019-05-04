@@ -58,19 +58,128 @@ case 1:
     printf("Your chosen Pokemon is CHARMANDER \n");
     strcpy(x,"CHARMANDER");
     strcpy(y,"PIKACHU");
+        printf("              _.--\"\"`-..\n");
+    printf("            ,'          `.\n");
+    printf("          ,'          __  `.\n");
+    printf("         /|          \" __   \\\n");
+    printf("        , |           / |.   .\n");
+    printf("        |,'          !_.'|   |\n");
+    printf("      ,'             '   |   |\n");
+    printf("     /              |`--'|   |\n");
+    printf("    |                `---'   |\n");
+    printf("     .   ,                   |                       ,\".\n");
+    printf("      ._     '           _'  |                    , ' \\ `\n");
+    printf("  `.. `.`-...___,...---\"\"    |       __,.        ,`\"   L,|\n");
+    printf("  |, `- .`._        _,-,.'   .  __.-'-. /        .   ,    \\\n");
+    printf("-:..     `. `-..--_.,.<       `\"      / `.        `-/ |   .\n");
+    printf("  `,         \"\"\"\"'     `.              ,'         |   |  ',,\n");
+    printf("    `.      '            '            /          '    |'. |/\n");
+    printf("      `.   |              \\       _,-'           |       ''\n");
+    printf("        `._'               \\   '\"\\                .      |\n");
+    printf("           |                '     \\                `._  ,'\n");
+    printf("           |                 '     \\                 .'|\n");
+    printf("           |                 .      \\                | |\n");
+    printf("           |                 |       L              ,' |\n");
+    printf("           `                 |       |             /   '\n");
+    printf("            \\                |       |           ,'   /\n");
+    printf("          ,' \\               |  _.._ ,-..___,..-'    ,'\n");
+    printf("         /     .             .      `!             ,j'\n");
+    printf("        /       `.          /        .           .'/\n");
+    printf("       .          `.       /         |        _.'.'\n");
+    printf("        `.          7`'---'          |------\"'_.'\n");
+    printf("       _,.`,_     _'                ,''-----\"'\n");
+    printf("   _,-_    '       `.     .'      ,\\\n");
+    printf("   -\" /`.         _,'     | _  _  _.|\n");
+    printf("    \"\"--'---\"\"\"\"\"'        `' '! |! /\n");
+    printf("                            `\" \" -' mh\n");
+    printf("\n");
+    printf("\n");
+
+
 
     break;
 case 2:
-    printf("Your chosen Pokemon is SQUIRTLE \n");
+
+
+   printf("Your chosen Pokemon is SQUIRTLE \n");
         strcpy(x,"SQUIRTLE");
     strcpy(y,"CHARMANDER");
+        printf("               _,........__\n");
+    printf("            ,-'            \"`-.\n");
+    printf("          ,'                   `-.\n");
+    printf("        ,'                        \\\n");
+    printf("      ,'                           .\n");
+    printf("      .'\\               ,\"\".       `\n");
+    printf("     ._.'|             / |  `       \\\n");
+    printf("     |   |            `-.'  ||       `.\n");
+    printf("     |   |            '-._,'||       | \\\n");
+    printf("     .`.,'             `..,'.'       , |`-.\n");
+    printf("     l                       .'`.  _/  |   `.\n");
+    printf("     `-.._'-   ,          _ _'   -\" \\  .     `\n");
+    printf("`.\"\"\"\"\"'-.`-...,---------','         `. `....__.\n");
+    printf(".'        `\"-..___      __,'\\          \\  \\     \\\n");
+    printf("\\_ .          |   `\"\"\"\"'    `.           . \\     \\\n");
+    printf("  `.          |              `.          |  .     L\n");
+    printf("    `.        |`--...________.'.        j   |     |\n");
+    printf("      `._    .'      |          `.     .|   ,     |\n");
+    printf("         `--,\\       .            `7\"\"' |  ,      |\n");
+    printf("            ` `      `            /     |  |      |    _,-'\"\"\"`-.\n");
+    printf("             \\ `.     .          /      |  '      |  ,'          `.\n");
+    printf("              \\  v.__  .        '       .   \\    /| /              \\\n");
+    printf("               \\/    `\"\"\\\"\"\"\"\"\"\"`.       \\   \\  /.''                |\n");
+    printf("                `        .        `._ ___,j.  `/ .-       ,---.     |\n");
+    printf("                ,`-.      \\         .\"     `.  |/        j     `    |\n");
+    printf("               /    `.     \\       /         \\ /         |     /    j\n");
+    printf("              |       `-.   7-.._ .          |\"          '         /\n");
+    printf("              |          `./_    `|          |            .     _,'\n");
+    printf("              `.           / `----|          |-............`---'\n");
+    printf("                \\          \\      |          |\n");
+    printf("               ,'           )     `.         |\n");
+    printf("                7____,,..--'      /          |\n");
+    printf("                                  `---.__,--.'mh\n");
+
+
+
 
 
     break;
+
 case 3:
     printf("Your chosen Pokemon is BULBASAUR \n");
         strcpy(x,"BULBASAUR");
     strcpy(y,"SQUIRTLE");
+        printf("                                           /\n");
+    printf("                        _,.------....___,.' ',.-.\n");
+    printf("                     ,-'          _,.--\"        |\n");
+    printf("                   ,'         _.-'              .\n");
+    printf("                  /   ,     ,'                   `\n");
+    printf("                 .   /     /                     ``.\n");
+    printf("                 |  |     .                       \\.\\\n");
+    printf("       ____      |___._.  |       __               \\ `.\n");
+    printf("     .'    `---\"\"       ``\"-.--\"'`  \\               .  \\\n");
+    printf("    .  ,            __               `              |   .\n");
+    printf("    `,'         ,-\"'  .               \\             |    L\n");
+    printf("   ,'          '    _.'                -._          /    |\n");
+    printf("  ,`-.    ,\".   `--'                      >.      ,'     |\n");
+    printf(" . .'\\'   `-'       __    ,  ,-.         /  `.__.-      ,'\n");
+    printf(" ||:, .           ,'  ;  /  / \\ `        `.    .      .'/\n");
+    printf(" j|:D  \\          `--'  ' ,'_  . .         `.__, \\   , /\n");
+    printf("/ L:_  |                 .  \"' :_;                `.'.'\n");
+    printf(".    \"\"'                  \"\"\"\"\"'                    V\n");
+    printf(" `.                                 .    `.   _,..  `\n");
+    printf("   `,_   .    .                _,-'/    .. `,'   __  `\n");
+    printf("    ) \\`._        ___....----\"'  ,'   .'  \\ |   '  \\  .\n");
+    printf("   /   `. \"`-.--\"'         _,' ,'     `---' |    `./  |\n");
+    printf("  .   _  `\"\"'--.._____..--\"   ,             '         |\n");
+    printf("  | .\" `. `-.                /-.           /          ,\n");
+    printf("  | `._.'    `,_            ;  /         ,'          .\n");
+    printf(" .'          /| `-.        . ,'         ,           ,\n");
+    printf(" '-.__ __ _,','    '`-..___;-...__   ,.'\\ ____.___.'\n");
+    printf(" `\"^--'..'   '-`-^-'\"--    `-^-'`.''\"\"\"\"\"`.,^.`.--' mh\n");
+    printf("\n");
+    printf("\n");
+
+
 
 
     break;
@@ -78,6 +187,51 @@ case 4:
     printf("Your chosen Pokemon is PIKACHU \n");
         strcpy(x,"PIKACHU");
     strcpy(y,"BULBASAUR");
+        printf("                                             ,-.\n");
+    printf("                                          _.|  '\n");
+    printf("                                        .'  | /\n");
+    printf("                                      ,'    |'\n");
+    printf("                                     /      /\n");
+    printf("                       _..----\"\"---.'      /\n");
+    printf(" _.....---------...,-\"\"                  ,'\n");
+    printf(" `-._  \\                                /\n");
+    printf("     `-.+_            __           ,--. .\n");
+    printf("          `-.._     .:  ).        (`--\"| \\\n");
+    printf("               7    | `\" |         `...'  \\\n");
+    printf("               |     `--'     '+\"        ,\". ,\"\"-\n");
+    printf("               |   _...        .____     | |/    '\n");
+    printf("          _.   |  .    `.  '--\"   /      `./     j\n");
+    printf("         \\' `-.|  '     |   `.   /        /     /\n");
+    printf("         '     `-. `---\"      `-\"        /     /\n");
+    printf("          \\       `.                  _,'     /\n");
+    printf("           \\        `                        .\n");
+    printf("            \\                                j\n");
+    printf("             \\                              /\n");
+    printf("              `.                           .\n");
+    printf("                +                          \\\n");
+    printf("                |                           L\n");
+    printf("                |                           |\n");
+    printf("                |  _ /,                     |\n");
+    printf("                | | L)'..                   |\n");
+    printf("                | .    | `                  |\n");
+    printf("                '  \\'   L                   '\n");
+    printf("                 \\  \\   |                  j\n");
+    printf("                  `. `__'                 /\n");
+    printf("                _,.--.---........__      /\n");
+    printf("               ---.,'---`         |   -j\"\n");
+    printf("                .-'  '....__      L    |\n");
+    printf("              \"\"--..    _,-'       \\ l||\n");
+    printf("                  ,-'  .....------. `||'\n");
+    printf("               _,'                /\n");
+    printf("             ,'                  /\n");
+    printf("            '---------+-        /\n");
+    printf("                     /         /\n");
+    printf("                   .'         /\n");
+    printf("                 .'          /\n");
+    printf("               ,'           /\n");
+    printf("             _'....----\"\"\"\"\" mh\n");
+
+
 
 
     break;
@@ -127,6 +281,7 @@ case 'S':
 //--------------------------------------------------------------------
 int main()
 {
+
     int pa,ea;
     struct Pokemon player;
     player.hp=100;
