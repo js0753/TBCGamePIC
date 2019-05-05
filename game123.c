@@ -6,16 +6,22 @@
 typedef struct Pokemon{
     char pname[100];
     int hp;
-    int pp;
-    char a1[100],a2[100],a3[100],a4[100];
-    int potions;
+
+    struct move{
+        char mname[100];
+        int pp;
+        int dmg;
+    }m1[4];
+
+    int hpp;
+    int ppp;
 
 }pok;
 
 void atk(int ,struct Pokemon *);
-int chooseatk(struct Pokemon z,int l,char y1[100],char y2[100],char y3[100],char y4[100],int *p);
+int chooseatk(pok *z,int l);
 void ChoosePokemon(char x[100],char y[100]);
-void AssignAtk(char k[100],char a1[100],char a2[100],char a3[100],char a4[100]);
+void AssignAtk(pok *k);
 void Battle();
 
 //----------------------------------------------------------------------------------------------
@@ -92,6 +98,7 @@ printf("Player 1 \n");
 ChoosePokemon(player1.pname,"Null");
 printf("\nPlayer 2 \n");
 ChoosePokemon(player2.pname,"Null");
+printf("Press Enter to Continue \n");
 getch();
 system("cls");
 Battle(&player1,&player2,2);
@@ -120,32 +127,12 @@ void atk(int x,struct Pokemon *y){
 
 //------------------------------------------------------------------------------------------------------------------
 
-int chooseatk(struct Pokemon z,int l,char y1[100],char y2[100],char y3[100],char y4[100],int *p){
+int chooseatk(pok *z,int l){
     int f;
-switch(l){
-case 1:
-    printf("%s used %s\n\n",z.pname,y1);
-    f=10;
-    *p=*p-5;
-    break;
-case 2:
-    printf("%s used %s \n\n",z.pname,y2);
-        f=12;
-        *p-=6;
-    break;
-case 3:
-    printf("%s used %s \n\n",z.pname,y3);
-        f=19;
-        *p-=20;
-    break;
-case 4:
-    printf("%s used %s \n\n",z.pname,y4);
-        f=14;
-        *p-=16;
-    break;
-default:
-    printf("Please enter a valid number ");
-    }
+    printf("%s used %s\n\n",z->pname,z->m1[l-1].mname);
+    f=z->m1[l-1].dmg;
+    z->m1[l-1].pp-=1;
+
 return f;
 
 }
@@ -200,33 +187,40 @@ default:
 }
 
 //----------------------------------------------------------------------------------------------
-void AssignAtk(char k[100],char a1[100],char a2[100],char a3[100],char a4[100]){
-char c=k[0];
-
+void AssignAtk(pok *k){
+char c=*k->pname;
+k->m1[0].pp=20;
+k->m1[1].pp=15;
+k->m1[2].pp=3;
+k->m1[3].pp=5;
+k->m1[0].dmg=10;
+k->m1[1].dmg=12;
+k->m1[2].dmg=19;
+k->m1[3].dmg=14;
  switch(c){
 case 'P':
-    strcpy(a1,"THUNDERSHOCK");
-    strcpy(a2,"QUICK ATTACK");
-    strcpy(a3,"THUNDERBOLT");
-    strcpy(a4,"SLAM");
+    strcpy(k->m1[0].mname,"THUNDERSHOCK");
+    strcpy(k->m1[1].mname,"QUICK ATTACK");
+    strcpy(k->m1[2].mname,"THUNDERBOLT");
+    strcpy(k->m1[3].mname,"SLAM");
     break;
 case 'C':
-    strcpy(a1,"SCRATCH");
-    strcpy(a2,"EMBER");
-    strcpy(a3,"FLAMETHROWER");
-    strcpy(a4,"SLASH");
+    strcpy(k->m1[0].mname,"SCRATCH");
+    strcpy(k->m1[1].mname,"EMBER");
+    strcpy(k->m1[2].mname,"FLAMETHROWER");
+    strcpy(k->m1[3].mname,"SLASH");
     break;
 case 'B':
-    strcpy(a1,"VINE WHIP");
-    strcpy(a2,"TACKLE");
-    strcpy(a3,"TAKE DOWN");
-    strcpy(a4,"RAZOR LEAF");
+    strcpy(k->m1[0].mname,"VINE WHIP");
+    strcpy(k->m1[1].mname,"TACKLE");
+    strcpy(k->m1[2].mname,"TAKE DOWN");
+    strcpy(k->m1[3].mname,"RAZOR LEAF");
     break;
 case 'S':
-    strcpy(a1,"BITE");
-    strcpy(a2,"WATER GUN");
-    strcpy(a3,"HYDRO PUMP");
-    strcpy(a4,"BUBBLE BEAM");
+    strcpy(k->m1[0].mname,"BITE");
+    strcpy(k->m1[1].mname,"WATER GUN");
+    strcpy(k->m1[2].mname,"HYDRO PUMP");
+    strcpy(k->m1[3].mname,"BUBBLE BEAM");
  }
 
 
@@ -236,11 +230,9 @@ case 'S':
 void Battle(pok *x,pok *y,int q){
     int pa,ea;    //player attack and enemy attack
     x->hp=100;
-    x->pp=100;
     y->hp=100;
-    y->pp=100;
-    AssignAtk(x->pname,x->a1,x->a2,x->a3,x->a4);
-    AssignAtk(y->pname,y->a1,y->a2,y->a3,y->a4);
+    AssignAtk(x);
+    AssignAtk(y);
 
 while(x->hp>0 && y->hp>0){
         int i;
@@ -253,31 +245,42 @@ while(x->hp>0 && y->hp>0){
     for(i=(y->hp/10);i>0;i--){
         printf("||");
     }
-    printf("\n\n PP of %s is : %d and PP of %s is : %d \n",x->pname,x->pp,y->pname,y->pp);
 printf("\n\n\n");
         int t,u;
     printf("Player 1 turn \n");
-    printf("1.%s       2.%s \n3.%s       4.%s \n",x->a1,x->a2,x->a3,x->a4);
+    printf("1.%s(PP:%d/20)       2.%s(PP:%d/15) \n3.%s(PP:%d/3)       4.%s(PP:%d/5) \n5.Open Bag\n",x->m1[0].mname,x->m1[0].pp,x->m1[1].mname,x->m1[1].pp,x->m1[2].mname,x->m1[2].pp,x->m1[3].mname,x->m1[3].pp);
 
     scanf("%d",&pa);
-    if(x->pp>0)
-    t=chooseatk(*x,pa,x->a1,x->a2,x->a3,x->a4,&(x->pp));
+    if(pa!=5){
+    if(x->m1[pa-1].pp>0)
+    //t=chooseatk(*x,pa,x->m1[0].mname,x->m1[1].mname,x->m1[2].mname,x->m1[3].mname,&(x->m1[pa-1].pp));
+    t=chooseatk(x,pa);
     else
    {
     t=0;
     printf("No PP left, Using an attack requires PP\n");
    }
     atk(t,y);
+    }
+    else
+    printf("Items in the Bag are :\nHP Potions:%d\nPP Potions:%d",x->hpp,x->ppp);
     if(y->hp>0){
     if(q==1)
     ea=rand()%4 + 1;
     else{
     printf("\nPlayer 2 turn \n");
-    printf("1.%s(PP:%d)       2.%s(PP:%d) \n3.%s(PP:%d)       4.%s(PP:%d) \n",y->a1,5,y->a2,6,y->a3,20,y->a4,16);
+    printf("1.%s(PP:%d/20)       2.%s(PP:%d/15) \n3.%s(PP:%d/3)       4.%s(PP:%d/5) \n5.Open Bag\n",y->m1[0].mname,y->m1[0].pp,y->m1[1].mname,y->m1[1].pp,y->m1[2].mname,y->m1[2].pp,y->m1[3].mname,y->m1[3].pp);
     scanf("%d",&ea);
     }
-    u=chooseatk(*y,ea,y->a1,y->a2,y->a3,y->a4,&(y->pp));
-    //printf("%d",u);
+    if(y->m1[ea-1].pp>0)
+    //u=chooseatk(*y,ea,y->m1[0].mname,y->m1[1].mname,y->m1[2].mname,y->m1[3].mname,&(y->m1[ea-1].pp));
+    u=chooseatk(y,ea);
+    else
+   {
+    t=0;
+    printf("No PP left, Using an attack requires PP\n");
+   }
+
     atk(u,x);
     }
     getch();
@@ -296,11 +299,19 @@ printf("HP of %s ",x->pname);
     }
 printf("\n\n");
 if(y->hp<0){
+    if(q==1)
     printf("%s has fainted \n\nYOU HAVE WON THE BATTLE! \n",y->pname);
+    else
+    printf("%s has fainted \n\nPLAYER1 HAS WON THE BATTLE! \n",y->pname);
+
 }
 else if(x->hp<0){
+    if(q==1)
     printf("%s has fainted \n\nYOU LOOSE \n",x->pname);
-}
+    else
+    printf("%s has fainted \n\nPLAYER2 HAS WON THE BATTLE! \n",x->pname);
+
+    }
 
 else{
     printf("Both the Pokemon have fainted\n\nIT'S A DRAW! \n");
