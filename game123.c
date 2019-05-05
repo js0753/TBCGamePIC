@@ -280,24 +280,29 @@ printf("\n\n\n");
     else
     Bag(x);
     if(y->hp>0){
-    if(q==1)
+    if(q==1){
     ea=rand()%4 + 1;
+    u=chooseatk(y,ea);
+    atk(u,x);
+    }
     else{
     printf("\nPlayer 2 turn \n");
     printf("1.%s(PP:%d/20)       2.%s(PP:%d/15) \n3.%s(PP:%d/3)       4.%s(PP:%d/5) \n5.Open Bag\n",y->m1[0].mname,y->m1[0].pp,y->m1[1].mname,y->m1[1].pp,y->m1[2].mname,y->m1[2].pp,y->m1[3].mname,y->m1[3].pp);
     scanf("%d",&ea);
-    }
+
+
     if(ea!=5){
     if(y->m1[ea-1].pp>0)
     u=chooseatk(y,ea);
     else
    {
-    while(x->m1[pa-1].pp<=0){
-    t=0;
+    while(y->m1[ea-1].pp<=0){
+    u=0;
     printf("No PP left, Using an attack requires PP,Please use another move\n");
     scanf("%d",&ea);
     if(pa==5){
         Bag(y);
+        u=0;
         break;
     }
     else
@@ -309,10 +314,15 @@ printf("\n\n\n");
     }
     else
         Bag(y);
+
+    }
+    }
+
+
     getch();
     system("cls");
 
-}}
+}
 int i;
 printf("HP of %s ",x->pname);
     for(i=(x->hp/10);i>0;i--){
@@ -352,7 +362,8 @@ printf("Items in the Bag are :\n1)HP Potions:%d\n2)PP Potions:%d\n",a->hpp,a->pp
 scanf("%d",&i);
 if(i==1){
     a->hpp--;
-    a->hp+=10;
+    a->hp+=15;
+    printf("HP potion was used to increase HP of %s \n",a->pname);
 }
 else if(i==2){
     int l;
@@ -360,6 +371,7 @@ else if(i==2){
     printf("Enter the move to increase pp\n");
     scanf("%d",&l);
     a->m1[l-1].pp++;
+    printf("PP of %s was increased by 1\n",a->m1[l-1].mname);
 
 }
 
