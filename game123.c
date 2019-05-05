@@ -193,13 +193,13 @@ default:
 void AssignAtk(pok *k){
 char c=*k->pname;
 k->m1[0].pp=20;
-k->m1[1].pp=15;
+k->m1[1].pp=10;
 k->m1[2].pp=3;
 k->m1[3].pp=5;
-k->m1[0].dmg=10;
-k->m1[1].dmg=12;
-k->m1[2].dmg=19;
-k->m1[3].dmg=14;
+k->m1[0].dmg=5;
+k->m1[1].dmg=10;
+k->m1[2].dmg=20;
+k->m1[3].dmg=15;
  switch(c){
 case 'P':
     strcpy(k->m1[0].mname,"THUNDERSHOCK");
@@ -243,12 +243,12 @@ void Battle(pok *x,pok *y,int q){
 
 while(x->hp>0 && y->hp>0){
         int i;
-    printf("HP of %s ",x->pname);
+    printf("HP of %s (%d)  ",x->pname,x->hp);
     for(i=(x->hp/10);i>0;i--){
         printf("||");
         }
         printf("        ");
-        printf("HP of %s ",y->pname);
+        printf("HP of %s (%d) ",y->pname,y->hp);
     for(i=(y->hp/10);i>0;i--){
         printf("||");
     }
@@ -324,12 +324,12 @@ printf("\n\n\n");
 
 }
 int i;
-printf("HP of %s ",x->pname);
+printf("HP of %s (%d) ",x->pname,x->hp);
     for(i=(x->hp/10);i>0;i--){
         printf("||");
         }
         printf("        ");
-        printf("HP of %s ",y->pname);
+        printf("HP of %s (%d) ",y->pname,y->hp);
     for(i=(y->hp/10);i>0;i--){
         printf("||");
     }
@@ -362,7 +362,7 @@ printf("Items in the Bag are :\n1)HP Potions:%d\n2)PP Potions:%d\n",a->hpp,a->pp
 scanf("%d",&i);
 if(i==1){
     a->hpp--;
-    a->hp+=15;
+    a->hp+=20;
     printf("HP potion was used to increase HP of %s \n",a->pname);
 }
 else if(i==2){
