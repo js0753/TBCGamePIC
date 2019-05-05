@@ -23,6 +23,7 @@ int chooseatk(pok *z,int l);
 void ChoosePokemon(char x[100],char y[100]);
 void AssignAtk(pok *k);
 void Battle();
+void Bag(pok *);
 
 //----------------------------------------------------------------------------------------------
 int main()
@@ -181,6 +182,8 @@ default:
     printf("Would you like to change your choice ? enter 'y' for yes and 'n' for no \n");
     getc(stdin);
     scanf("%c",&d);
+    if(d=='y')
+        printf("Enter the Pokemon you want \n");
     }
     if(y[0]!='N')
     printf("Enemy choosed %s \nPress Enter to continue\n",y);
@@ -231,6 +234,10 @@ void Battle(pok *x,pok *y,int q){
     int pa,ea;    //player attack and enemy attack
     x->hp=100;
     y->hp=100;
+    x->hpp=5;
+    x->ppp=5;
+    y->hpp=5;
+    y->ppp=5;
     AssignAtk(x);
     AssignAtk(y);
 
@@ -253,17 +260,25 @@ printf("\n\n\n");
     scanf("%d",&pa);
     if(pa!=5){
     if(x->m1[pa-1].pp>0)
-    //t=chooseatk(*x,pa,x->m1[0].mname,x->m1[1].mname,x->m1[2].mname,x->m1[3].mname,&(x->m1[pa-1].pp));
     t=chooseatk(x,pa);
     else
-   {
+    {
     t=0;
-    printf("No PP left, Using an attack requires PP\n");
+    while(x->m1[pa-1].pp<=0){
+    printf("No PP left, Using an attack requires PP,Please use another move\n");
+    scanf("%d",&pa);
+    if(pa==5){
+        Bag(x);
+        break;
+    }
+    else
+    t=chooseatk(x,pa);
+    }
    }
     atk(t,y);
     }
     else
-    printf("Items in the Bag are :\nHP Potions:%d\nPP Potions:%d",x->hpp,x->ppp);
+    Bag(x);
     if(y->hp>0){
     if(q==1)
     ea=rand()%4 + 1;
@@ -272,21 +287,32 @@ printf("\n\n\n");
     printf("1.%s(PP:%d/20)       2.%s(PP:%d/15) \n3.%s(PP:%d/3)       4.%s(PP:%d/5) \n5.Open Bag\n",y->m1[0].mname,y->m1[0].pp,y->m1[1].mname,y->m1[1].pp,y->m1[2].mname,y->m1[2].pp,y->m1[3].mname,y->m1[3].pp);
     scanf("%d",&ea);
     }
+    if(ea!=5){
     if(y->m1[ea-1].pp>0)
-    //u=chooseatk(*y,ea,y->m1[0].mname,y->m1[1].mname,y->m1[2].mname,y->m1[3].mname,&(y->m1[ea-1].pp));
     u=chooseatk(y,ea);
     else
    {
+    while(x->m1[pa-1].pp<=0){
     t=0;
-    printf("No PP left, Using an attack requires PP\n");
+    printf("No PP left, Using an attack requires PP,Please use another move\n");
+    scanf("%d",&ea);
+    if(pa==5){
+        Bag(y);
+        break;
+    }
+    else
+        u=chooseatk(y,ea);
+   }
    }
 
     atk(u,x);
     }
+    else
+        Bag(y);
     getch();
     system("cls");
 
-}
+}}
 int i;
 printf("HP of %s ",x->pname);
     for(i=(x->hp/10);i>0;i--){
@@ -319,5 +345,24 @@ else{
 
 
 }
+//-------------------------------------------------------------------------
+void Bag(pok *a){
+    int i;
+printf("Items in the Bag are :\n1)HP Potions:%d\n2)PP Potions:%d\n",a->hpp,a->ppp);
+scanf("%d",&i);
+if(i==1){
+    a->hpp--;
+    a->hp+=10;
+}
+else if(i==2){
+    int l;
+    a->ppp--;
+    printf("Enter the move to increase pp\n");
+    scanf("%d",&l);
+    a->m1[l-1].pp++;
 
+}
+
+
+}
 
