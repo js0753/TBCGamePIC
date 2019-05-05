@@ -87,9 +87,11 @@ system("cls");
 Battle(&player,&enemy,1);
 }
 else if(k==2){
-pok player1,player2,null;
-ChoosePokemon(player1.pname,null.pname);
-ChoosePokemon(player2.pname,null.pname);
+pok player1,player2;
+printf("Player 1 \n");
+ChoosePokemon(player1.pname,"Null");
+printf("\nPlayer 2 \n");
+ChoosePokemon(player2.pname,"Null");
 getch();
 system("cls");
 Battle(&player1,&player2,2);
@@ -158,12 +160,14 @@ char d='y';
 case 1:
     printf("Your chosen Pokemon is CHARMANDER \n");
     strcpy(x,"CHARMANDER");
+    if(y[0]!='N')
     strcpy(y,"PIKACHU");
 
     break;
 case 2:
     printf("Your chosen Pokemon is SQUIRTLE \n");
     strcpy(x,"SQUIRTLE");
+    if(y[0]!='N')
     strcpy(y,"CHARMANDER");
 
 
@@ -171,6 +175,7 @@ case 2:
 case 3:
     printf("Your chosen Pokemon is BULBASAUR \n");
     strcpy(x,"BULBASAUR");
+    if(y[0]!='N')
     strcpy(y,"SQUIRTLE");
 
 
@@ -178,7 +183,8 @@ case 3:
 case 4:
     printf("Your chosen Pokemon is PIKACHU \n");
         strcpy(x,"PIKACHU");
-    strcpy(y,"BULBASAUR");
+        if(y[0]!='N')
+        strcpy(y,"BULBASAUR");
 
 
     break;
@@ -189,7 +195,7 @@ default:
     getc(stdin);
     scanf("%c",&d);
     }
-
+    if(y[0]!='N')
     printf("Enemy choosed %s \nPress Enter to continue\n",y);
 }
 
@@ -259,15 +265,15 @@ printf("\n\n\n");
     else
    {
     t=0;
-    printf("No PP left, Using an attack requires PP");
+    printf("No PP left, Using an attack requires PP\n");
    }
     atk(t,y);
     if(y->hp>0){
     if(q==1)
     ea=rand()%4 + 1;
     else{
-    printf("Player 2 turn \n");
-    printf("1.%s(PP:%d)       2.%s(PP:%d) \n3.%s(PP:%d)       4.%s(PP:%d) \n",y->a1,5,y->a2,6,y->a3,y->a4);
+    printf("\nPlayer 2 turn \n");
+    printf("1.%s(PP:%d)       2.%s(PP:%d) \n3.%s(PP:%d)       4.%s(PP:%d) \n",y->a1,5,y->a2,6,y->a3,20,y->a4,16);
     scanf("%d",&ea);
     }
     u=chooseatk(*y,ea,y->a1,y->a2,y->a3,y->a4,&(y->pp));
@@ -302,4 +308,5 @@ else{
 
 
 }
+
 
