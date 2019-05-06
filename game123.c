@@ -483,14 +483,14 @@ printf("HP of %s (%d) ",x->pname,x->hp);
         printf("||");
     }
 printf("\n\n");
-if(y->hp<0){
+if(y->hp<=0 && x->hp>0){
     if(q==1)
     printf("%s has fainted \n\nYOU HAVE WON THE BATTLE! \n",y->pname);
     else
     printf("%s has fainted \n\nPLAYER1 HAS WON THE BATTLE! \n",y->pname);
 
 }
-else if(x->hp<0){
+else if(x->hp<=0 && y->hp>0){
     if(q==1)
     printf("%s has fainted \n\nYOU LOOSE \n",x->pname);
     else
