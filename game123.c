@@ -510,17 +510,25 @@ void Bag(pok *a){
 printf("Items in the Bag are :\n1)HP Potions:%d\n2)PP Potions:%d\n",a->hpp,a->ppp);
 scanf("%d",&i);
 if(i==1){
+    if(a->hpp>0){
     a->hpp--;
     a->hp+=20;
     printf("HP potion was used to increase HP of %s \n",a->pname);
+    }
+    else
+        printf("No HP potions left \n");
 }
 else if(i==2){
     int l;
+    if(a->ppp>0){
     a->ppp--;
     printf("Enter the move to increase pp\n");
     scanf("%d",&l);
     a->m1[l-1].pp++;
     printf("PP of %s was increased by 1\n",a->m1[l-1].mname);
+    }
+    else
+        printf("No PP potions are left \n");
 
 }
 
