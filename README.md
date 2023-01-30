@@ -1,2 +1,2 @@
 # Turn Based Combat Game 
-A turn based stratgey game similar to battles in Persona, Pokemon, etc created in C.
+A turn based strategy game similar to battles in Persona, Pokemon, etc created in C.
